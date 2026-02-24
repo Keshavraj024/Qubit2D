@@ -1,4 +1,4 @@
-name: Windows Build & Deploy
+name: Qubit2D-Build
 
 on:
   push:
