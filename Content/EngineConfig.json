@@ -1,0 +1,10 @@
+{
+    "graphics" :  {
+        "windowWidth" : 100,
+        "windowHeight": 100
+    },
+    "logging": {
+        "logToFile": true,
+        "logPath": "logs/engine.log"
+    }
+}

@@ -3,12 +3,8 @@
 #include <QQmlApplicationEngine>
 
 #include "Engine.h"
+#include "Logger.h"
 #include "QmlBridge.h"
-
-#include <QDebug>
-#include <QDirIterator>
-
-#include <QQmlContext>
 
 #ifdef Q_OS_WIN
 extern "C" {
@@ -21,6 +17,8 @@ int main(int argc, char *argv[])
 {
     // qputenv("QSG_INFO", "1");
     QGuiApplication app(argc, argv);
+
+    EngineLogger::installHandler();
 
     app.setWindowIcon(QIcon(":/Assets/Icons/AppIcon.png"));
 

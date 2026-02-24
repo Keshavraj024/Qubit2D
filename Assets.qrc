@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>Assets/Icons/AppIcon.png</file>
+        <file>Content/EngineConfig.json</file>
     </qresource>
 </RCC>

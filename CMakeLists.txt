@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Qubit2D VERSION 0.1 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTORCC ON)
 
@@ -28,9 +28,11 @@ qt_add_qml_module(appQubit2D
         ${HEADERS}
     RESOURCES
         Assets.qrc
+        SOURCES Engine/Include/Core/EngineConfig.h
+        SOURCES Engine/Source/Core/EngineConfig.cpp
 )
 
-target_include_directories(appQubit2D PUBLIC Engine/Include/Core/)
+target_include_directories(appQubit2D PUBLIC Engine/Include/Core/ Engine/Include/Utils/)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

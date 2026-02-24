@@ -2,7 +2,7 @@
 #include <QCoreApplication>
 #include "QmlBridge.h"
 
-#include <qqmlcontext.h>
+#include <QQmlContext>
 
 GameEngine::GameEngine() {}
 
