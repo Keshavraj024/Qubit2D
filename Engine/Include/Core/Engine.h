@@ -2,6 +2,8 @@
 
 #include <QObject>
 #include <QQmlApplicationEngine>
+
+#include "EngineContext.h"
 #include "QmlBridge.h"
 #include <qqmlintegration.h>
 
@@ -32,4 +34,5 @@ public:
 
 private:
     QQmlApplicationEngine m_qmlEngine;
+    EngineContext m_engineContext;
 };

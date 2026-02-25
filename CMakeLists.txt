@@ -28,11 +28,11 @@ qt_add_qml_module(appQubit2D
         ${HEADERS}
     RESOURCES
         Assets.qrc
-        SOURCES Engine/Include/Core/EngineConfig.h
-        SOURCES Engine/Source/Core/EngineConfig.cpp
+        SOURCES Engine/Include/Managers/TImeManager.h
+        SOURCES Engine/Source/Managers/TimeManager.cpp
 )
 
-target_include_directories(appQubit2D PUBLIC Engine/Include/Core/ Engine/Include/Utils/)
+target_include_directories(appQubit2D PUBLIC Engine/Include/Core/ Engine/Include/Utils/ Engine/Include/Managers/)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

@@ -1,8 +1,10 @@
 #include "Engine.h"
+
 #include <QCoreApplication>
 #include "QmlBridge.h"
 
 #include <QQmlContext>
+#include <QQuickWindow>
 
 GameEngine::GameEngine() {}
 
@@ -15,6 +17,27 @@ bool GameEngine::init(QmlBridge *bridge)
     m_qmlEngine.rootContext()->setContextProperty("Bridge", bridge);
 
     m_qmlEngine.loadFromModule("Qubit2D", "Main");
+
+    auto rootObjects = m_qmlEngine.rootObjects();
+    QObject *root = rootObjects.first();
+    QQuickWindow *window = qobject_cast<QQuickWindow *>(root);
+
+    if (window) {
+        // 'beforeSynchronizing' or 'afterAnimating' are the best hooks for game logic
+        QObject::connect(
+            window,
+            &QQuickWindow::afterAnimating,
+            this,
+            [this]() {
+                // --- THIS IS THE START OF YOUR GAME LOOP ---
+                m_engineContext.time.Update();
+
+                // Now you can update other systems:
+                // physicsSystem.step(timeManager.GetDeltaTime());
+                // aiSystem.update();
+            },
+            Qt::DirectConnection);
+    }
 
     return !m_qmlEngine.rootObjects().empty();
 }

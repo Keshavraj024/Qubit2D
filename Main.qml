@@ -10,6 +10,8 @@ Window {
     color: active ? palette.active.window : palette.inactive.window
 
 
+
+
     minimumHeight: 400
     minimumWidth: 400
 
